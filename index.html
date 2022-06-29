@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Interes Compuesto</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+</head>
+
+<body><!-- Comienzo del encabezado -->
+  
+
+  <div class="form-title">
+    <h2>Bienvenido a facilito</h2>
+  </div>
+  <div>
+    <h3 class="form-title">Calculadora de interes compuesto</h3>
+  </div>
+  <div class="flex__cv">
+    <form action="#"method="get" enctype="tex/plain" class="form-box animated fadeInUp">
+      <fieldset>
+        <div class="input__date">
+          <div>
+            <p class="parrafo">¿Cuál es tu nombre?</p>
+            <input class="name" type="text" placeholder="INGRESA TU NOMBRE">
+          </div>
+          <div class="titleInput">
+            <p class="parrafo">Cantidad inicial</p>
+            <div class="icon">
+              <a class="alertInfo" href="#">
+                <img  src="./icons/Question.png" alt="inversión">
+                <div class="box">
+                  <p class="infoQuestion">Cantidad de dinero con el que planea iniciar su inversión</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="input">
+            <input  type="number" id="capitalInicial" placeholder="Ejemplo: 10000">
+          </div>        
+          <div class="titleInput">
+            <p class="parrafo">Interes devengado</p>
+            <div class="icon">
+              <a class="alertInfo" href="#">
+                <img  src="./icons/Question.png" alt="inversión">
+                <div class="box">
+                  <p class="infoQuestion">Cantidad de dinero con el que planea iniciar su inversión</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <input id="interes"  type="number" placeholder="Expresado en decimal Ej: 5">
+          </div>
+          <div class="titleInput">
+            <p class="parrafo">Frecuencia de Pago</p>
+            <div class="icon">
+              <a class="alertInfo" href="#">
+                <img  src="./icons/Question.png" alt="inversión">
+                <div class="box">
+                  <p class="infoQuestion">Cantidad de dinero con el que planea iniciar su inversión</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <input id="frecuencia" type="number"  placeholder="Expresado en veces de pago Ej: 12">
+          </div>
+          <div class="titleInput">
+            <p class="parrafo">Aporte regular</p>
+            <div class="icon">
+              <a class="alertInfo" href="#">
+                <img  src="./icons/Question.png" alt="inversión">
+                <div class="box">
+                  <p class="infoQuestion">Cantidad de dinero con el que planea iniciar su inversión</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <input id="regular" type="number" placeholder="PASO OPCIONAL (adición de dinero)" >
+          </div>
+          <div class="titleInput">
+            <p class="parrafo">Numero de años</p>
+            <div class="icon">
+              <a class="alertInfo" href="#">
+                <img  src="./icons/Question.png" alt="inversión">
+                <div class="box">
+                  <p class="infoQuestion">Cantidad de dinero con el que planea iniciar su inversión</p>
+                </div>
+              </a>
+            </div>
+          </div>  
+          <div>            
+            <input id="anual" type="number" placeholder="Ejemplo: 2">
+          </div>
+          <div class="form-box">
+            <button id="boton-calcular">Calcular y graficar</button>                     
+          </div>
+          
+        </div>
+      </fieldset>
+    </form>
+    <div class="table__information">
+      <div id="headCanvas">
+
+      </div>
+      
+      <table class="tableCanvas table table-dark table-striped">
+         
+        <thead>
+          <tr>
+            <th scope="col">Año</th>
+            <th scope="col">Balance Inicial</th>
+            <th scope="col">aportaciones</th>
+            <th scope="col">Aportes acumulados</th>
+            <th scope="col">Interes</th>
+            <th scope="col">Frecuencia de pago</th>
+            <th scope="col">Interés Acumulado</th>
+            <th scope="col">Balance Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="result">
+            
+          </tr>
+            
+        </tbody>
+      </table>
+                 
+        
+      <div class='container-lg'>
+         <div id="canvas">
+            <canvas id="resultado"></canvas>            
+        </div>
+      </div>
+      
+
+    <div class="convert">
+      <div class="displayCambio">
+        
+        <div class="q">
+          <input id="cantidadOrigen" type="number" placeholder="CANTIDAD">
+        </div>
+          
+        <div class="divisa">
+          <select name="moneda" id="divisaOrigen" class="form-select form-select-sm mt-1" aria-label=".form-select-sm example">
+            <!-- <option>ada</option> -->
+            <option value="ars">ARS - Peso Argentino</option>
+            <!-- <option>bch</option> -->
+            <!-- <option>btc</option> -->
+            <option value="clp">CLP - Peso Chileno</option>
+            <!-- <option>dai</option> -->
+            <!-- <option>eth</option> -->
+            <!-- <option>ltc</option> -->
+            <option value="mxn">MXN - Peso Mexicano</option>
+            <option value="pen">PEN - Sol Peruano</option>
+            <!-- <option>sol</option> -->
+            <option value="usd">USD - Dolar Estados Unidos</option>
+            <!-- <option>usdc</option> -->
+            <!-- <option>xlm</option> -->
+            <!-- <option>xrp</option> -->
+          </select>
+        </div>
+      </div>
+
+      <div class="divisa">
+        <span>A</span><select name="moneda" id="divisaDestino" class="form-select form-select-sm" aria-label=".form-select-sm example">
+          <option value="ada">ADA - Cardano</option>
+          <option value="ars">ARS - Peso Argentino</option>
+          <option value="bch">BCH - BitcoinCash</option>
+          <option value="btc">BTC - Bitcoin</option>
+          <option value="clp">CLP - Peso Chileno</option>
+          <option value="dai">DAI - StableCoin</option>
+          <option value="eth">ETH - Ethereum</option>
+          <option value="ltc">LTC - Litecoin</option>
+          <option value="mxn">MXN - Peso Mexicano</option>
+          <option value="pen">PEN - Sol Peruano</option>
+          <option value="sol">SOL - Solanas</option>
+          <option value="usd">USD - Dolar Americano</option>
+          <option value="usdc">USDC - USDCoin</option>
+          <option value="xlm">XLM - Monero</option>
+          <option value="xrp">XRP - Rippio</option>
+        </select>
+      </div>
+      <div>
+        <button id="botonCambio" type="submit">Cambiar</button>
+      </div>
+      <div>
+        <table class="tableCanvas table table-dark table-striped">
+          
+          <thead>
+            <tr>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Divisa Origen</th>
+              <th scope="col"></th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Divisa Destino</th>
+            </tr>
+          </thead>
+          <tbody id="cantidadDestino">
+            
+          </tbody>
+        </table>
+        <button id="limpiarTabla">Limpiar Tabla</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <p class="text-center text-muted">© Derechos reservados 2022</p>
+  </footer>
+</div>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<script type="text/javascript" src="./constructores.js"></script>
+<script type="text/javascript" src="./API.js"></script>
+<script type="text/javascript" src="./calculadora.js"></script>
+<script type="text/javascript" src="./grafica.js"></script>
+
+  
+</body>
+</html>
